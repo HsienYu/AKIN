@@ -32,7 +32,7 @@ var getIPAddresses = function () {
 
 var udpPort = new osc.UDPPort({
     localAddress: "0.0.0.0",
-    localPort: 53000
+    localPort: 57121
 });
 
 udpPort.on("ready", function () {
@@ -55,13 +55,15 @@ udpPort.on("message", function (oscMessage) {
                 counterIncrement = counterIncrement * -1;
             }
             led.pwmWrite(dutyCycle);
-            console.log(dutyCycle);
+            //console.log(dutyCycle);
 
         }, 50);
+        console.log('strip light goes up and down');
     }
 
     if (oscMessage.address == '/stop') {
         led.pwmWrite(0);
+        console.log('strip light stop');
     }
 });
 
