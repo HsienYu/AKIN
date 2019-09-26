@@ -19,5 +19,7 @@
     "url": "https://github.com/HsienYu/AKIN/issues"
   },
   "homepage": "https://github.com/HsienYu/AKIN#readme",
-  "dependencies": {}
+  "dependencies": {
+    "osc": "^2.3.1"
+  }
 }
