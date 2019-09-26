@@ -6,7 +6,7 @@ const led = new Gpio(18, { mode: Gpio.OUTPUT });
 
 let dutyCycle = 0;
 let counterIncrement = 1;
-
+var updown;
 /****************
  * OSC Over UDP *
  ****************/
@@ -45,7 +45,7 @@ udpPort.on("ready", function () {
 
 udpPort.on("message", function (oscMessage) {
     if (oscMessage.address == '/play') {
-        var updown = setInterval(() => {
+        updown = setInterval(() => {
             dutyCycle = dutyCycle + counterIncrement;
             if (dutyCycle == 254) {
                 counterIncrement = -counterIncrement;
