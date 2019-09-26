@@ -60,7 +60,7 @@ udpPort.on("message", function (oscMessage) {
         }, 50);
     }
 
-    if (oscMessage.address == '/stop' && omxplayer.running) {
+    if (oscMessage.address == '/stop') {
         led.pwmWrite(0);
     }
 });
