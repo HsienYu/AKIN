@@ -32,7 +32,7 @@ var getIPAddresses = function () {
 
 var udpPort = new osc.UDPPort({
     localAddress: "0.0.0.0",
-    localPort: 57121
+    localPort: 53000
 });
 
 udpPort.on("ready", function () {
