@@ -6,7 +6,16 @@ const led = new Gpio(18, { mode: Gpio.OUTPUT });
 
 let dutyCycle = 0;
 let counterIncrement = 1;
-
+var updown = setInterval(() => {
+    dutyCycle = dutyCycle + counterIncrement;
+    if (dutyCycle == 254) {
+        counterIncrement = -counterIncrement;
+    } else if (dutyCycle == 0) {
+        counterIncrement = counterIncrement * -1;
+    }
+    led.pwmWrite(dutyCycle);
+    //console.log(dutyCycle);
+}, 50);
 
 /****************
  * OSC Over UDP *
@@ -46,22 +55,12 @@ udpPort.on("ready", function () {
 
 udpPort.on("message", function (oscMessage) {
     if (oscMessage.address == '/play') {
-        setInterval(() => {
-
-            dutyCycle = dutyCycle + counterIncrement;
-            if (dutyCycle == 254) {
-                counterIncrement = -counterIncrement;
-            } else if (dutyCycle == 0) {
-                counterIncrement = counterIncrement * -1;
-            }
-            led.pwmWrite(dutyCycle);
-            //console.log(dutyCycle);
-
-        }, 50);
+        updown();
         console.log('strip light goes up and down');
     }
 
     if (oscMessage.address == '/stop') {
+        clearInterval(updown);
         led.pwmWrite(0);
         console.log('strip light stop');
     }
