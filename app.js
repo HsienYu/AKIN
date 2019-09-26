@@ -9,6 +9,6 @@ setInterval(() => {
 
     dutyCycle += 5;
     if (dutyCycle > 255) {
-        dutyCycle = 0;
+        dutyCycle -= 5;
     }
 }, 20);
