@@ -13,7 +13,7 @@ setInterval(() => {
     } else if (dutyCycle == 0) {
         counterIncrement = counterIncrement * -1;
     }
-    //led.pwmWrite(dutyCycle);
+    led.pwmWrite(dutyCycle);
     console.log(dutyCycle);
 
 }, 50);
