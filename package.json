@@ -1,0 +1,23 @@
+{
+  "name": "akin",
+  "version": "1.0.0",
+  "description": "akin's installtion",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HsienYu/AKIN.git"
+  },
+  "keywords": [
+    "installation"
+  ],
+  "author": "chenghsienyu",
+  "license": "Artistic-2.0",
+  "bugs": {
+    "url": "https://github.com/HsienYu/AKIN/issues"
+  },
+  "homepage": "https://github.com/HsienYu/AKIN#readme",
+  "dependencies": {}
+}
